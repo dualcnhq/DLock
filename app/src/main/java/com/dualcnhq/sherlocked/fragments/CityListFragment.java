@@ -45,6 +45,10 @@ public class CityListFragment extends Fragment {
         return instance;
     }
 
+    public static CityListFragment newInstance() {
+        return new CityListFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

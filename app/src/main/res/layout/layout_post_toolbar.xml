@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/textUserName"
+        fontPath="fonts/roboto_medium.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingBottom="5dp"
+        android:text="..."
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        android:gravity="center"
+        tools:ignore="MissingPrefix"
+        android:layout_alignBottom="@+id/clackText"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:id="@+id/textNumCharacters"
+        fontPath="fonts/roboto_medium.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="5dp"
+        android:layout_toLeftOf="@+id/clackText"
+        android:layout_toStartOf="@+id/clackText"
+        android:gravity="center"
+        android:text="320"
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        tools:ignore="MissingPrefix" />
+
+    <Button
+        android:id="@+id/clackText"
+        fontPath="fonts/roboto_medium.ttf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:background="@drawable/btn_selector"
+        android:text="@string/post"
+        android:textColor="@android:color/black"
+        android:textSize="16sp"
+        tools:ignore="MissingPrefix" />
+
+</RelativeLayout>

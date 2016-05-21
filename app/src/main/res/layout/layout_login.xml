@@ -16,7 +16,7 @@
 
         <EditText
             android:id="@+id/loginEmailUser"
-            fontPath="fonts/roboto_thin.ttf"
+            fontPath="fonts/Roboto-Thin.ttf"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email_username"
@@ -28,7 +28,7 @@
 
         <EditText
             android:id="@+id/loginPassword"
-            fontPath="fonts/Roboto-Regular.ttf"
+            fontPath="fonts/Roboto-Thin.ttf"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"

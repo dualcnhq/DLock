@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="7dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="12dp"
+        android:paddingTop="7dp">
+
+        <com.dualcnhq.sherlocked.views.RoundedImageView
+            android:id="@+id/userIcon"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:src="@drawable/ic_no_avatar" />
+
+        <TextView
+            android:id="@+id/userName"
+            fontPath="fonts/Roboto-Medium.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="7dp"
+            android:layout_marginRight="7dp"
+            android:layout_marginTop="10dp"
+            android:textAllCaps="true"
+            android:textColor="#052D4A"
+            android:textSize="15sp"
+            tools:ignore="MissingPrefix" />
+
+        <TextView
+            android:id="@+id/place"
+            fontPath="fonts/Roboto-Thin.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1"
+            android:ellipsize="middle"
+            android:gravity="end"
+            android:singleLine="true"
+            android:textColor="#737373"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:id="@+id/iconTime"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="10dp"
+            android:padding="1dp"
+            android:src="@drawable/clock" />
+
+        <TextView
+            android:id="@+id/timeText"
+            fontPath="fonts/Roboto-Thin.ttf"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="10dp"
+            android:textColor="#052D4A"
+            android:textSize="14sp"
+            tools:ignore="MissingPrefix" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="15dp"/>
+
+    <TextView
+        android:id="@+id/postText"
+        fontPath="fonts/Roboto-Thin.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="18dp"
+        android:paddingLeft="50dp"
+        android:paddingRight="30dp"
+        android:textColor="@android:color/black"
+        android:textSize="14sp"
+        tools:ignore="MissingPrefix" />
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="#F8F8F8"
+        android:orientation="horizontal"
+        android:paddingLeft="44dp"
+        android:paddingRight="12dp">
+
+        <ImageView
+            android:id="@+id/upvote"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"/>
+
+        <ImageView
+            android:id="@+id/downvote"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp" />
+
+        <TextView
+            android:id="@+id/countText"
+            fontPath="fonts/Roboto-Thin.ttf"
+            android:layout_width="20dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="20dp"
+            android:gravity="center_vertical"
+            android:textColor="@android:color/white"
+            android:textSize="12sp"
+            tools:ignore="MissingPrefix" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E2E1D1" />
+
+        <ImageView
+            android:id="@+id/snap"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#E2E1D1" />
+
+        <TextView
+            android:id="@+id/inappr_label"
+            fontPath="fonts/Roboto-Thin.ttf"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:textSize="12sp"
+            tools:ignore="MissingPrefix" />
+
+        <ImageView
+            android:id="@+id/replyIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:paddingBottom="7dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="7dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -32,9 +32,10 @@ dependencies {
 
     // utils
     compile 'com.jakewharton:butterknife:7.0.1'
+    compile 'com.google.android.gms:play-services:7.3.0'
 
     // network
-    compile 'com.parse:parse-android:1.13.0'
+    compile fileTree(include: 'Parse-*.jar', dir: 'libs')
     compile 'com.parse.bolts:bolts-android:1.+'
 
     compile project(':lockscreenservice')

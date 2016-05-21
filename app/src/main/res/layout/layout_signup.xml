@@ -15,7 +15,7 @@
 
         <EditText
             android:id="@+id/signUpEmail"
-            fontPath="fonts/Roboto-Regular.ttf"
+            fontPath="fonts/Roboto-Thin.ttf"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:hint="@string/email"
@@ -27,7 +27,7 @@
 
         <EditText
             android:id="@+id/signUpUsername"
-            fontPath="fonts/Roboto-Regular.ttf"
+            fontPath="fonts/Roboto-Thin.ttf"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
@@ -51,7 +51,7 @@
 
                 <EditText
                     android:id="@+id/signUpPassword"
-                    fontPath="fonts/Roboto-Regular.ttf"
+                    fontPath="fonts/Roboto-Thin.ttf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
@@ -64,7 +64,7 @@
 
                 <EditText
                     android:id="@+id/signUpRepeatPassword"
-                    fontPath="fonts/Roboto-Regular.ttf"
+                    fontPath="fonts/Roboto-Thin.ttf"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"

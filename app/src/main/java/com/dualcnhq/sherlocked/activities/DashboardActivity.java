@@ -2,13 +2,21 @@ package com.dualcnhq.sherlocked.activities;
 
 import android.Manifest;
 import android.app.ProgressDialog;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.location.LocationManager;
 import android.os.Build;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.Menu;
@@ -17,11 +25,15 @@ import android.widget.Toast;
 
 import com.camnter.easyslidingtabs.widget.EasySlidingTabs;
 import com.dualcnhq.sherlocked.R;
+import com.dualcnhq.sherlocked.adapters.TabFragmentAdapter;
 import com.dualcnhq.sherlocked.adapters.TabsFragmentAdapter;
 import com.dualcnhq.sherlocked.fragments.CityListFragment;
 import com.dualcnhq.sherlocked.fragments.PostFragment;
 import com.dualcnhq.sherlocked.fragments.PrimaryContactFragment;
 import com.dualcnhq.sherlocked.utils.AppUtils;
+import com.dualcnhq.sherlocked.utils.ClackLocationManager;
+import com.dualcnhq.sherlocked.utils.Observable;
+import com.dualcnhq.sherlocked.utils.Prefs;
 import com.dualcnhq.sherlocked.utils.PrefsUtils;
 import com.parse.LogOutCallback;
 import com.parse.ParseException;
@@ -38,8 +50,16 @@ public class DashboardActivity extends BaseActivity {
     private ViewPager easyVP;
     private TabsFragmentAdapter adapter;
     List<Fragment> fragments;
+    
+    private AlertDialog alertGPS;
+    private AlertDialog alertNetwork;
+    private boolean alertNetworkShown;
+    private GpsChangeReceiver gpsChangeReceiver;
+
+    private ClackLocationManager mClackLocationManager;
 
     private static final int READ_CONTACT_PERMISSION_REQUEST_CODE = 76;
+    private FragmentPagerAdapter adapterViewPager;
 
     public static final String[] titles = {"Primary Contact", "City List", "Posts"};
 
@@ -48,31 +68,42 @@ public class DashboardActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
-        this.initViews();
-        this.initData();
+        ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
+        adapterViewPager = new TabFragmentAdapter((getSupportFragmentManager()));
+        vpPager.setAdapter(adapterViewPager);
+
+        Prefs.getInstance().setContext(getApplicationContext());
+
+        mClackLocationManager = ClackLocationManager.getInstance(DashboardActivity.this);
+
+        gpsChangeReceiver = new GpsChangeReceiver();
+        getApplicationContext().registerReceiver(gpsChangeReceiver, new IntentFilter(LocationManager.PROVIDERS_CHANGED_ACTION));
+
+        //this.initViews();
+        //this.initData();
         checkForPermissions();
     }
 
-    private void initViews() {
-        this.easySlidingTabs = (EasySlidingTabs) this.findViewById(R.id.easy_sliding_tabs);
-        this.easyVP = (ViewPager) this.findViewById(R.id.easy_vp);
-    }
+//    private void initViews() {
+//        this.easySlidingTabs = (EasySlidingTabs) this.findViewById(R.id.easy_sliding_tabs);
+//        this.easyVP = (ViewPager) this.findViewById(R.id.easy_vp);
+//    }
 
-    private void initData() {
-        this.fragments = new LinkedList<>();
-        PrimaryContactFragment first = PrimaryContactFragment.getInstance();
-        CityListFragment second = CityListFragment.getInstance();
-        PostFragment third = PostFragment.getInstance();
-
-        this.fragments.add(first);
-        this.fragments.add(second);
-        this.fragments.add(third);
-
-        this.adapter = new TabsFragmentAdapter(this.getSupportFragmentManager(), titles,
-                this.fragments);
-        this.easyVP.setAdapter(this.adapter);
-        this.easySlidingTabs.setViewPager(this.easyVP);
-    }
+//    private void initData() {
+//        this.fragments = new LinkedList<>();
+//        PrimaryContactFragment first = PrimaryContactFragment.getInstance();
+//        CityListFragment second = CityListFragment.getInstance();
+//        PostFragment third = PostFragment.getInstance();
+//
+//        this.fragments.add(first);
+//        this.fragments.add(second);
+//        this.fragments.add(third);
+//
+//        this.adapter = new TabsFragmentAdapter(this.getSupportFragmentManager(), titles,
+//                this.fragments);
+//        this.easyVP.setAdapter(this.adapter);
+//        this.easySlidingTabs.setViewPager(this.easyVP);
+//    }
 
     private void checkForPermissions() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS) ==
@@ -141,4 +172,106 @@ public class DashboardActivity extends BaseActivity {
 
         return super.onOptionsItemSelected(item);
     }
+    
+    // GPS
+    private class GpsChangeReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (mClackLocationManager.locationServiceEnabled()) {
+                if (alertGPS != null && alertGPS.isShowing()) {
+                    alertGPS.dismiss();
+                }
+                mClackLocationManager.connect();
+                if (!AppUtils.isInternetOn(DashboardActivity.this)) {
+                    showNetworkDisabledDialog();
+                    return;
+                }
+            }
+        }
+    }
+
+    @Override
+    public void onStop() {
+        mClackLocationManager.disconnect();
+        super.onStop();
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (!ClackLocationManager.getInstance(this).locationServiceEnabled()) {
+            showLocationDisabledDialog();
+            return;
+        }
+        mClackLocationManager.connect();
+        if (!AppUtils.isInternetOn(this)) {
+            showNetworkDisabledDialog();
+            return;
+        }
+    }
+
+    private void showLocationDisabledDialog() {
+        if (alertGPS == null) {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getResources().getString(R.string.location_disabled))
+                    .setCancelable(false)
+                    .setPositiveButton(getResources().getString(R.string.action_settings), new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int id) {
+                            try {
+                                startActivity(new Intent(android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS));
+                            } catch (Throwable th) {
+                                if (AppUtils.DBG) {
+                                    Log.e(TAG, "Unable to start GPS settings activity");
+                                }
+                            }
+                        }
+                    })
+                    .setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int id) {
+                            dialog.cancel();
+                        }
+                    });
+            alertGPS = builder.create();
+        }
+        alertGPS.show();
+    }
+
+    private void showNetworkDisabledDialog() {
+        if (alertNetworkShown) {
+            return;
+        }
+        if (alertNetwork == null) {
+            final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage(getResources().getString(R.string.network_disabled))
+                    .setCancelable(false)
+                    .setPositiveButton(getResources().getString(R.string.action_settings), new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int id) {
+                            alertNetwork.dismiss();
+                            try {
+                                startActivity(new Intent(Settings.ACTION_WIFI_SETTINGS));
+                            } catch (Throwable th) {
+                                if (AppUtils.DBG) {
+                                    Log.e(TAG, "Unable to start wifi settings activity");
+                                }
+                            }
+                        }
+                    })
+                    .setNegativeButton(getResources().getString(R.string.cancel), new DialogInterface.OnClickListener() {
+                        public void onClick(final DialogInterface dialog, final int id) {
+                            dialog.cancel();
+                        }
+                    });
+            alertNetwork = builder.create();
+        }
+        alertNetworkShown = true;
+        alertNetwork.show();
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        getApplicationContext().unregisterReceiver(gpsChangeReceiver);
+        ClackLocationManager.getInstance(null);
+    }
+
 }

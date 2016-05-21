@@ -1,0 +1,35 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/postToolbar"
+        style="@style/Widget.SherLocked.ActionBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        app:contentInsetEnd="0dp"
+        app:contentInsetStart="0dp" >
+
+        <include layout="@layout/layout_post_toolbar" />
+
+        </android.support.v7.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/goingOn"
+        fontPath="fonts/roboto_medium.ttf"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="20dp"
+        android:background="@android:color/white"
+        android:gravity="top"
+        android:hint="What's going on?"
+        android:imeOptions="actionDone"
+        tools:ignore="MissingPrefix" />
+
+</LinearLayout>

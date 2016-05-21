@@ -64,6 +64,10 @@ public class PrimaryContactFragment extends Fragment {
         return instance;
     }
 
+    public static PrimaryContactFragment newInstance() {
+        return new PrimaryContactFragment();
+    }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
