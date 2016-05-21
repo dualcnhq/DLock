@@ -45,9 +45,9 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         Button addEdit = (Button) findViewById(R.id.btnAddEditContact);
-        if(PrefsUtils.getIsPrimaryContactSet(getApplicationContext())){
-           addEdit.setText(getApplicationContext().getResources().getString(R.string.edit_contact) +
-           " no: " + PrefsUtils.getPrimaryContactNumber(getApplicationContext()));
+        if (PrefsUtils.getIsPrimaryContactSet(getApplicationContext())) {
+            addEdit.setText(getApplicationContext().getResources().getString(R.string.edit_contact) +
+                    " no: " + PrefsUtils.getPrimaryContactNumber(getApplicationContext()));
         } else {
             addEdit.setText(getApplicationContext().getResources().getString(R.string.add_contact));
         }
@@ -73,8 +73,11 @@ public class MainActivity extends BaseActivity {
             queryContacts();
         } else {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                requestPermissions(new String[]{Manifest.permission.READ_CONTACTS},
-                        READ_CONTACT_PERMISSION_REQUEST_CODE);
+                requestPermissions(new String[]{
+                        Manifest.permission.READ_CONTACTS,
+                        Manifest.permission.SEND_SMS,
+                        Manifest.permission.CALL_PHONE,
+                }, READ_CONTACT_PERMISSION_REQUEST_CODE);
             }
         }
     }
@@ -100,7 +103,7 @@ public class MainActivity extends BaseActivity {
                 uriContact = intent.getData();
                 retrieveContactNumber(intent);
             } else {
-                Toast.makeText(getApplicationContext(), "selecting primary contact was cancelled", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "Selecting primary contact was cancelled", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -154,7 +157,7 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    private void setPrimaryContactNumber(String selectedNumber){
+    private void setPrimaryContactNumber(String selectedNumber) {
         contactNumber = selectedNumber.replace("-", "");
         PrefsUtils.setPrimaryContactNumber(getApplicationContext(), contactNumber);
         SharedPreferencesUtil.setPrimaryContactNumber(getApplicationContext(), contactNumber);
@@ -231,7 +234,7 @@ public class MainActivity extends BaseActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            if(!TextUtils.isEmpty(PrefsUtils.getPrimaryContactNumber(getApplicationContext()))) {
+            if (!TextUtils.isEmpty(PrefsUtils.getPrimaryContactNumber(getApplicationContext()))) {
                 startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
             } else {
                 Toast.makeText(getApplicationContext(), "You need to pick a primary contact first.",

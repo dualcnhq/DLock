@@ -51,33 +51,40 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
-            android:background="@android:color/black"/>
+            android:background="@android:color/black" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
             android:orientation="vertical">
 
             <Button
                 android:id="@+id/btnSMS"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="test"/>
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:background="@drawable/oval_button"
+                android:text="Send SMS"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/btnCall"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="tset" />
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/oval_button"
+                android:text="Make A Call"
+                android:textColor="@android:color/black" />
 
             <Button
                 android:id="@+id/btnSiren"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-                android:text="siren"/>
+                android:layout_width="140dp"
+                android:layout_height="140dp"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/oval_button"
+                android:text="siren"
+                android:textColor="@android:color/black" />
 
         </LinearLayout>
 

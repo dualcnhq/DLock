@@ -1,6 +1,7 @@
 package com.dualcnhq.lockscreenservice.service;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
@@ -11,6 +12,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.telephony.PhoneStateListener;
 import android.telephony.SmsManager;
 import android.telephony.TelephonyManager;
@@ -26,13 +28,20 @@ import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.dualcnhq.lockscreenservice.LockScreen;
+import com.dualcnhq.lockscreenservice.LockScreenActivity;
 import com.dualcnhq.lockscreenservice.LockScreenUtil;
 import com.dualcnhq.lockscreenservice.R;
 import com.dualcnhq.lockscreenservice.SharedPreferencesUtil;
+import com.permissioneverywhere.PermissionEverywhere;
+import com.permissioneverywhere.PermissionResponse;
+import com.permissioneverywhere.PermissionResultCallback;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
+
+import static android.support.v4.app.ActivityCompat.*;
 
 public class LockScreenViewService extends Service {
 
@@ -65,6 +74,7 @@ public class LockScreenViewService extends Service {
             changeBackGroundLockView(mLastLayoutX);
         }
     }
+
     @Override
     public IBinder onBind(Intent intent) {
         return null;
@@ -104,7 +114,6 @@ public class LockScreenViewService extends Service {
     public void onDestroy() {
         dettachLockScreenView();
     }
-
 
     private void initState() {
 
@@ -229,8 +238,7 @@ public class LockScreenViewService extends Service {
         sms.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SmsManager smsManager = SmsManager.getDefault();
-                smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
+                sendSMS(primaryContactNumber);
             }
         });
 
@@ -243,13 +251,29 @@ public class LockScreenViewService extends Service {
         });
     }
 
+    private void sendSMS(String primaryContactNumber){
+        SmsManager smsManager = SmsManager.getDefault();
+        smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
+    }
+
     private void makeACall(String primaryContactNumber) {
+//        PermissionEverywhere.getPermission(getApplicationContext(), new String[]{Manifest.permission.CALL_PHONE},
+//                1234, "My Awesome App", "This app needs a permission", R.drawable.lock).enqueue(new PermissionResultCallback() {
+//            @Override
+//            public void onComplete(PermissionResponse permissionResponse) {
+//                Toast.makeText(LockScreenViewService.this, "is Granted " + permissionResponse.isGranted(), Toast.LENGTH_SHORT).show();
+//            }
+//        });
+
         EndCallListener callListener = new EndCallListener();
         TelephonyManager mTM = (TelephonyManager) this.getSystemService(getApplicationContext().TELEPHONY_SERVICE);
         mTM.listen(callListener, PhoneStateListener.LISTEN_CALL_STATE);
 
-        Intent callIntent = new Intent(Intent.ACTION_CALL);
+        final Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + primaryContactNumber));
+        callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        callIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
             //    ActivityCompat#requestPermissions
@@ -258,10 +282,17 @@ public class LockScreenViewService extends Service {
             //                                          int[] grantResults)
             // to handle the case where the user grants the permission. See the documentation
             // for ActivityCompat#requestPermissions for more details.
-
-            startActivity(callIntent);
+//            PermissionEverywhere.getPermission(getApplicationContext(), new String[]{Manifest.permission.CALL_PHONE},
+//                    123, "My Awesome App", "This app needs a permission", R.drawable.lock).enqueue(new PermissionResultCallback() {
+//                @Override
+//                public void onComplete(PermissionResponse permissionResponse) {
+//                    Toast.makeText(LockScreenViewService.this, "is Granted " + permissionResponse.isGranted(), Toast.LENGTH_SHORT).show();
+//                    startActivity(callIntent);
+//                }
+//            });
             return;
         }
+        startActivity(callIntent);
     }
 
     private static final String TAG = "LockScreenViewService";
@@ -401,4 +432,5 @@ public class LockScreenViewService extends Service {
             mForegroundLayout.startAnimation(animation);
         }
     }
+
 }
