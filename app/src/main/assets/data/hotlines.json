@@ -1,0 +1,96 @@
+{
+    "emergency_hotlines": [
+        {
+            "name": "general",
+            "hotlines": [
+                {
+                    "name": "Philippine National Police (PNP)",
+                    "contactNum": [
+                        "117"
+                    ]
+                },
+                {
+                    "name": "Bureau of Fire Protection (NCR)",
+                    "contactNum": [
+                        "117",
+                        "(02) 729-5166",
+                        "(02) 410-6319"
+                    ]
+                },
+                {
+                    "name": "Metro Manila Development Authority (MMDA) Flood Control",
+                    "contactNum": [
+                        "117",
+                        "136",
+                        "(02) 882-0925"
+                    ]
+                },
+                {
+                    "name": "Metro Manila Development Authority (MMDA) Rescue",
+                    "contactNum": [
+                        "(02) 882-4150-77 loc. 337"
+                    ]
+                },
+                {
+                    "name": "Metro Manila Development Authority (MMDA) Metrobase",
+                    "contactNum": [
+                        "(02) 882-0860"
+                    ]
+                },
+                {
+                    "name": "National Disaster Risk Reduction and Management Council",
+                    "contactNum": [
+                        "(02) 421-1918"
+                    ]
+                },
+                {
+                    "name": "Red Cross hotline",
+                    "contactNum": [
+                        "143",
+                        "(02) 527-0000",
+                        "(02) 527-8385 to 95"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "express way",
+            "hotlines": [
+                {
+                    "name": "Skyway System",
+                    "contactNum": [
+                        "(02) 776-7777",
+                        "0917-539-8762",
+                        "0999-886-0893",
+                        "0932-854-6980"
+                    ]
+                },
+                {
+                    "name": "North Luzon Expressway (NLEx)",
+                    "contactNum": [
+                        "(02) 3-5000",
+                        "(02) 580-8910"
+                    ]
+                },
+                {
+                    "name": "Subic-Clark-Tarlac Expressway (SCTEX)",
+                    "contactNum": [
+                        "(02) 459-0522"
+                    ]
+                },
+                {
+                    "name": "South Luzon Expressway (SLEx)",
+                    "contactNum": [
+                        "(02) 584-4389"
+                    ]
+                },
+                {
+                    "name": "CAVITEX",
+                    "contactNum": [
+                        "(02) 825-4004"
+                    ]
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,1124 @@
+{
+    "fire_stations": {
+       
+    "Makati": [
+        {
+            "name": "Makati City Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 813-2328"
+                },
+                {
+                    "telNum": "(02) 844-3313"
+                }
+            ]
+        },
+        {
+            "name": "Central Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 816-2553"
+                },
+                {
+                    "telNum": "(02) 818-5150"
+                }
+            ]
+        },
+        {
+            "name": "Bangkal Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 844-4482"
+                }
+            ]
+        },
+        {
+            "name": "Tejeoros Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 890-8345"
+                }
+            ]
+        },
+        {
+            "name": "Guadalupe Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 882-1843"
+                }
+            ]
+        },
+        {
+            "name": "Valenzuela Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 899-9035"
+                }
+            ]
+        },
+        {
+            "name": "Pio Del Pilar Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 818-4868"
+                }
+            ]
+        },
+        {
+            "name": "La Paz Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 899-2225"
+                }
+            ]
+        },
+        {
+            "name": "Comembo Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 728-7198"
+                }
+            ]
+        },
+        {
+            "name": "West Rembo Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 882-0531"
+                }
+            ]
+        },
+        {
+            "name": "Poblacion Fire Sub-station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 890-7210"
+                }
+            ]
+        }
+    ],
+        "Caloocan": [
+            {
+                "name": "Caloocan City Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 324-6527"
+                    }
+                ]
+            },
+            {
+                "name": "Morning Breeze Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 364-5680"
+                    }
+                ]
+            },
+            {
+                "name": "Bagong Barrio Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 361-4829"
+                    }
+                ]
+            },
+            {
+                "name": "4th Avenue Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 364-9060"
+                    }
+                ]
+            },
+            {
+                "name": "Barrio San Jose Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 363-5030"
+                    }
+                ]
+            },
+            {
+                "name": "Kaybiga Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 984-1410"
+                    }
+                ]
+            },
+            {
+                "name": "Talipapa Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 983-1125"
+                    }
+                ]
+            }
+        ],
+        "Las Piñas": [
+            {
+                "name": "Las Piñas Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 873-1948"
+                    }
+                ]
+            },
+            {
+                "name": "Bayan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 820-2172"
+                    }
+                ]
+            },
+            {
+                "name": "BF Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 871-2281"
+                    }
+                ]
+            },
+            {
+                "name": "CAA Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 541-7044"
+                    }
+                ]
+            },
+            {
+                "name": "Gatchalian Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 829-0186"
+                    }
+                ]
+            },
+            {
+                "name": "Manuela Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 874-0058"
+                    }
+                ]
+            },
+            {
+                "name": "Pilar Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 806-0625"
+                    }
+                ]
+            }
+        ],
+        "Malabon": [
+            {
+                "name": "Malabon City Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 361-9712"
+                    }
+                ]
+            },
+            {
+                "name": "Bayan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 281-1141"
+                    }
+                ]
+            },
+            {
+                "name": "Hulong Duhat Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 281-4607"
+                    }
+                ]
+            },
+            {
+                "name": "Panghulo Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": " (02) 446-6316"
+                    }
+                ]
+            }
+        ],
+        "Mandaluyong": [
+            {
+                "name": "Mandaluyong Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 532-2189"
+                    },
+                    {
+                        "telNum": "(02) 532-2402"
+                    },
+                    {
+                        "telNum": "(02) 533-7708"
+                    }
+                ]
+            },
+            {
+                "name": "EDSA Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 634-2070"
+                    }
+                ]
+            },
+            {
+                "name": "Hulo Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 534-7450"
+                    }
+                ]
+            },
+            {
+                "name": "Kalentong Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 531-7476"
+                    }
+                ]
+            }
+        ],
+        "Manila": [
+            {
+                "name": "Arroceros Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 528-0641"
+                    }
+                ]
+            },
+            {
+                "name": "Bacood Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 714-6973"
+                    }
+                ]
+            },
+            {
+                "name": "Gagalanging Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 253-9551"
+                    }
+                ]
+            },
+            {
+                "name": "Intramuros Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 301-1101"
+                    }
+                ]
+            },
+            {
+                "name": "Malacañang Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 735-1894"
+                    },
+                    {
+                        "telNum": "(02) 564-1451 local 6900"
+                    }
+                ]
+            },
+            {
+                "name": "Paco Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 523-3402"
+                    },
+                    {
+                        "telNum": "(02) 525-4714"
+                    }
+                ]
+            },
+            {
+                "name": "Pandacan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 563-1074"
+                    }
+                ]
+            },
+            {
+                "name": "Sampaloc Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 749-7194"
+                    }
+                ]
+            },
+            {
+                "name": "San Lazaro Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 309-9645"
+                    }
+                ]
+            },
+            {
+                "name": "San Nicolas Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 243-2871"
+                    }
+                ]
+            },
+            {
+                "name": "Sta. Ana Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 338-7667"
+                    }
+                ]
+            },
+            {
+                "name": "Sta. Mesa Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 716-6426"
+                    }
+                ]
+            },
+            {
+                "name": "Tanduay Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 313-0384"
+                    }
+                ]
+            },
+            {
+                "name": "Tondo Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 245-3403"
+                    }
+                ]
+            }
+        ],
+        "Marikina": [
+            {
+                "name": "Marikina Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 646-04-27"
+                    }
+                ]
+            }
+        ],
+        "Muntinlupa": [
+            {
+                "name": "Muntinlupa Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 842-2201, (02) 772-3994"
+                    }
+                ]
+            },
+            {
+                "name": "Ayala Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 809-8460"
+                    }
+                ]
+            },
+            {
+                "name": "Central Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 772-3945 (Fax)"
+                    }
+                ]
+            },
+            {
+                "name": "New Bilibid Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "Sucat Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 842-3611"
+                    }
+                ]
+            }
+        ],
+        "Navotas": [
+            {
+                "name": "Navotas City Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 281-0854"
+                    }
+                ]
+            },
+            {
+                "name": "Tangos Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 351-5288"
+                    }
+                ]
+            },
+            {
+                "name": "Tanza Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 351-40-89"
+                    }
+                ]
+            }
+        ],
+        "Pateros": [
+            {
+                "name": "Pateros Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 641-1365"
+                    }
+                ]
+            }
+        ],
+        "Parañaque": [
+            {
+                "name": "Parañaque Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 826-9131"
+                    }
+                ]
+            },
+            {
+                "name": "BF Homes Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 842-4682"
+                    }
+                ]
+            },
+            {
+                "name": "La Huerta Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 826-3176"
+                    }
+                ]
+            }
+        ],
+        "Pasay": [
+            {
+                "name": "Pasay Fire Stations",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 844-2120"
+                    },
+                    {
+                        "telNum": "(02) 843-6523"
+                    }
+                ]
+            },
+            {
+                "name": "Kalayaan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 776-08-22"
+                    }
+                ]
+            },
+            {
+                "name": "Malibay Pasay Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 851-0869"
+                    }
+                ]
+            },
+            {
+                "name": "Senate Fire Sub-station (02)",
+                "contactNum": [
+                    {
+                        "telNum": "552-6601 local 1999"
+                    }
+                ]
+            },
+            {
+                "name": "Villamor Air Base Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 853-5031, (02) 854-6722"
+                    }
+                ]
+            }
+        ],
+        "Pasig": [
+            {
+                "name": "Pasig Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 641-1939"
+                    },
+                    {
+                        "telNum": "(02) 641-2815"
+                    }
+                ]
+            },
+            {
+                "name": "Bagong Ilog Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 671-7922"
+                    }
+                ]
+            },
+            {
+                "name": "Bagong Ilog Fireboat Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "Bambang Fireboat Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "Kapitolyo Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 746-5529 (temp 10-7)"
+                    }
+                ]
+            },
+            {
+                "name": "Manngahan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 681-8638"
+                    }
+                ]
+            },
+            {
+                "name": "Maybunga Fireboat Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "MERALCO Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 633-8909"
+                    }
+                ]
+            },
+            {
+                "name": "Pinagbuhatan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "Rosario Fireboat Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "thru radio"
+                    }
+                ]
+            },
+            {
+                "name": "Santolan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 682-1019"
+                    }
+                ]
+            },
+            {
+                "name": "Sta. Lucia Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 916-1765"
+                    }
+                ]
+            }
+        ],
+        "Quezon City": [
+            {
+                "name": "Sta. Lucia Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 916-1765"
+                    }
+                ]
+            },
+            {
+                "name": "Agham / Central Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 928-8363"
+                    }
+                ]
+            },
+            {
+                "name": "Baesa Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 359-0990"
+                    }
+                ]
+            },
+            {
+                "name": "Bahay Toro Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 454-4219"
+                    }
+                ]
+            },
+            {
+                "name": "Emergency Medical Services",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 515-6163"
+                    }
+                ]
+            },
+            {
+                "name": "Fairview Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 938-1729"
+                    }
+                ]
+            },
+            {
+                "name": "Frisco Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 415-1690"
+                    }
+                ]
+            },
+            {
+                "name": "Galas Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 715-5573"
+                    }
+                ]
+            },
+            {
+                "name": "IBP/Congress Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 931-6628"
+                    }
+                ]
+            },
+            {
+                "name": "Lagro Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 930-2237"
+                    }
+                ]
+            },
+            {
+                "name": "Laloma Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 740-0501"
+                    }
+                ]
+            },
+            {
+                "name": "Libis Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 497-2257"
+                    }
+                ]
+            },
+            {
+                "name": "Marilag Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 437-8635"
+                    },
+                    {
+                        "telNum": "(02) 913-0125"
+                    }
+                ]
+            },
+            {
+                "name": "New Era Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 931-9894"
+                    }
+                ]
+            },
+            {
+                "name": "Novaliches Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 936-3594"
+                    }
+                ]
+            },
+            {
+                "name": "Pinagkaisahan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 415-5345"
+                    }
+                ]
+            },
+            {
+                "name": "Project 6 Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 453-6787"
+                    }
+                ]
+            },
+            {
+                "name": "Ramon Magsaysay Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 473-1239"
+                    }
+                ]
+            },
+            {
+                "name": "San Bartolome Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 939-1301"
+                    }
+                ]
+            },
+            {
+                "name": "Sta. Lucia Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 480-3982"
+                    }
+                ]
+            },
+            {
+                "name": "Talipapa Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 491-6397"
+                    }
+                ]
+            }
+        ],
+        "San Juan": [
+            {
+                "name": "San Juan Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 725-2079"
+                    }
+                ]
+            },
+            {
+                "name": "Agora Fire Sub-Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 721-6655"
+                    }
+                ]
+            },
+            {
+                "name": "Hoover Fire Sub-Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 497-5012"
+                    }
+                ]
+            },
+            {
+                "name": "P-1 Fire Sub-Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 725-2095"
+                    }
+                ]
+            }
+        ],
+        "Taguig": [
+            {
+                "name": "Taguig Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 837-4837"
+                    }
+                ]
+            },
+            {
+                "name": "Bagumbayan Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 544-1076"
+                    }
+                ]
+            },
+            {
+                "name": "MRT Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 838-5200"
+                    }
+                ]
+            },
+            {
+                "name": "Tipas Fire Sub-station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 543-5623"
+                    }
+                ]
+            }
+        ],
+        "Valenzuela": [
+            {
+                "name": "Valenzuela Fire Station",
+                "contactNum": [
+                    {
+                        "telNum": "(02) 292-57-05"
+                    }
+                ]
+            }
+        ],
+         "Bulacan": [
+        {
+            "name": "Bureau of Fire Protection",
+            "contactNum": [
+                {
+                    "telNum": "(044) 796-2900"
+                }
+            ]
+        },
+        {
+            "name": "Angat Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 671-7996"
+                }
+            ]
+        },
+        {
+            "name": "Balagtas Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 663-7996"
+                }
+            ]
+        },
+        {
+            "name": "Baliuag Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 766-3250"
+                }
+            ]
+        },
+        {
+            "name": "Bocaue Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 692-7996"
+                }
+            ]
+        },
+        {
+            "name": "Bulacan Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 668-2831"
+                }
+            ]
+        },
+{
+            "name": "Bustos Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 617-7996"
+                }
+            ]
+        },
+{
+            "name": "Calumpit Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 675-2760"
+                }
+            ]
+        },
+
+{
+            "name": "Guiguinto Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 690-7957"
+                }
+            ]
+        },
+{
+            "name": "Hagonoy Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 793-2018"
+                }
+            ]
+        },
+{
+            "name": "Malolos Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 662-3472"
+                }
+            ]
+        },
+{
+            "name": "Marilao Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 711-4838"
+                }
+            ]
+        },
+{
+            "name": "Meycauayan Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 840-7996"
+                },
+{
+                    "telNum": "(044) 840-4554"
+                }
+            ]
+        },
+{
+            "name": "Norzagaray Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 694-7996"
+                }
+            ]
+        },
+{
+            "name": "Obando Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(02) 299-7996"
+                }
+            ]
+        },
+{
+            "name": "Pandi Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 661-7996"
+                }
+            ]
+        },
+{
+            "name": "Paombong Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 665-7996"
+                }
+            ]
+        },
+{
+            "name": "Plaridel Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 670-7996"
+                }
+            ]
+        },
+{
+            "name": "Pulilan Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 676-7996"
+                }
+            ]
+        },
+{
+            "name": "SJDM Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 691-7996"
+                },
+{
+                    "telNum": "(044) 691-6017"
+                }
+            ]
+        },
+{
+            "name": "San Ildefonso Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 677-1790"
+                }
+            ]
+        },
+{
+            "name": "San Miguel Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 678-7996"
+                }
+            ]
+        },
+{
+            "name": "San Rafael Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 761-5562"
+                }
+            ]
+        },
+{
+            "name": "Sta Maria Fire Station",
+            "contactNum": [
+                {
+                    "telNum": "(044) 641-4788"
+                }
+            ]
+        }
+
+    ]
+    }
+}

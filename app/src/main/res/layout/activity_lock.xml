@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="@dimen/_15sdp"
+    android:orientation="vertical">
+
+    <Button
+        android:id="@+id/btnUnlock"
+        fontPath="fonts/Roboto-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/unlock"
+        tools:ignore="MissingPrefix" />
+
+    <Button
+        android:id="@+id/btnSMS"
+        fontPath="fonts/Roboto-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/send_sms"
+        tools:ignore="MissingPrefix" />
+
+    <Button
+        android:id="@+id/btnCall"
+        fontPath="fonts/Roboto-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/call"
+        tools:ignore="MissingPrefix" />
+
+    <Button
+        android:id="@+id/btnSiren"
+        fontPath="fonts/Roboto-Regular.ttf"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/siren"
+        tools:ignore="MissingPrefix" />
+
+</LinearLayout>

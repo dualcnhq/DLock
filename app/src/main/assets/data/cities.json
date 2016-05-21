@@ -1,0 +1,76 @@
+{
+    "cities": [
+        {
+            "id": "1",
+            "name": "Manila"
+        },
+        {
+            "id": "2",
+            "name": "Caloocan"
+        },
+        {
+            "id": "3",
+            "name": "Las Piñas"
+        },
+        {
+            "id": "4",
+            "name": "Makati"
+        },
+        {
+            "id": "5",
+            "name": "Malabon"
+        },
+        {
+            "id": "6",
+            "name": "Mandaluyong"
+        },
+        {
+            "id": "7",
+            "name": "Marikina"
+        },
+        {
+            "id": "8",
+            "name": "Muntinlupa"
+        },
+        {
+            "id": "9",
+            "name": "Navotas"
+        },
+        {
+            "id": "10",
+            "name": "Parañaque"
+        },
+        {
+            "id": "11",
+            "name": "Pasay"
+        },
+        {
+            "id": "12",
+            "name": "Pasig"
+        },
+        {
+            "id": "13",
+            "name": "Pateros"
+        },
+        {
+            "id": "14",
+            "name": "Quezon City"
+        },
+        {
+            "id": "15",
+            "name": "San Juan"
+        },
+        {
+            "id": "16",
+            "name": "Taguig"
+        },
+        {
+            "id": "17",
+            "name": "Valenzuela"
+        },
+         {
+            "id": "18",
+            "name": "Bulacan"
+        }
+    ]
+}
