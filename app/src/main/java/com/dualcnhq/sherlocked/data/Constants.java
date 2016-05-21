@@ -2,6 +2,9 @@ package com.dualcnhq.sherlocked.data;
 
 public interface Constants {
 
+    String APP_ID = "BtXMKzEEUx13Wv6eTrVcN0iqJaeww7kwsyggGIBo";
+    String CLIENT_KEY = "HCRBO2aZdSXIIVRJmJusNYwtBOKfoLpO52X4nIAF";
+
     int DATABASE_VERSION = 1;
     String DATABASE_NAME = "sherlocked.db";
 

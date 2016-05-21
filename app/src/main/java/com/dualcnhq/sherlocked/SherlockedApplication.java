@@ -2,7 +2,14 @@ package com.dualcnhq.sherlocked;
 
 import android.app.Application;
 
+import com.dualcnhq.lockscreenservice.data.Constants;
+import com.parse.Parse;
+
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
+
+import static com.dualcnhq.lockscreenservice.data.Constants.*;
+import static com.dualcnhq.sherlocked.data.Constants.APP_ID;
+import static com.dualcnhq.sherlocked.data.Constants.CLIENT_KEY;
 
 public class SherlockedApplication extends Application {
 
@@ -20,6 +27,8 @@ public class SherlockedApplication extends Application {
                 .setFontAttrId(R.attr.fontPath)
                 .build()
         );
+
+        Parse.initialize(this, APP_ID, CLIENT_KEY);
     }
 
 }

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/background_dark"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="40dp"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/loginEmailUser"
+            fontPath="fonts/roboto_thin.ttf"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/email_username"
+            android:inputType="textEmailAddress"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:theme="@style/EditTextStyle"
+            tools:ignore="MissingPrefix" />
+
+        <EditText
+            android:id="@+id/loginPassword"
+            fontPath="fonts/Roboto-Regular.ttf"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:hint="@string/password"
+            android:inputType="textPassword"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
+            android:theme="@style/EditTextStyle"
+            tools:ignore="MissingPrefix" />
+
+        <Button
+            android:id="@+id/loginStart"
+            fontPath="fonts/Roboto-Bold.ttf"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/btn_selector"
+            android:padding="9dp"
+            android:text="@string/start_now"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="16sp"
+            tools:ignore="MissingPrefix" />
+
+
+    </LinearLayout>
+</ScrollView>

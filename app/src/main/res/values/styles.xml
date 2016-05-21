@@ -48,4 +48,8 @@
         <item name="android:backgroundDimEnabled">false</item>
     </style>
 
+    <style name="EditTextStyle">
+        <item name="colorControlNormal">#737373</item>
+    </style>
+
 </resources>

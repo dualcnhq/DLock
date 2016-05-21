@@ -25,12 +25,17 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.2.1'
     compile 'com.android.support:design:23.2.1'
 
+    // ui
     compile 'uk.co.chrisjenx:calligraphy:2.2.0'
     compile 'com.intuit.sdp:sdp-android:1.0.3'
-
-
     compile 'com.camnter.easyslidingtabs:easyslidingtabs:1.0'
+
+    // utils
     compile 'com.jakewharton:butterknife:7.0.1'
+
+    // network
+    compile 'com.parse:parse-android:1.13.0'
+    compile 'com.parse.bolts:bolts-android:1.+'
 
     compile project(':lockscreenservice')
 }

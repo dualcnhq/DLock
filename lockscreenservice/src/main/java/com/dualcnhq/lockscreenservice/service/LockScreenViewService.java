@@ -2,9 +2,12 @@ package com.dualcnhq.lockscreenservice.service;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.PendingIntent;
 import android.app.Service;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
 import android.location.Address;
@@ -137,6 +140,7 @@ public class LockScreenViewService extends Service {
                 mInflater = null;
                 mLockScreenView = null;
             }
+            initLoc();
             initState();
             initView();
             attachLockScreenView();
@@ -285,11 +289,65 @@ public class LockScreenViewService extends Service {
     }
 
     private void sendSMS(String primaryContactNumber) {
-        SmsManager smsManager = SmsManager.getDefault();
-        smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
+        Log.d(TAG, "send sms: " + primaryContactNumber);
+        //SmsManager smsManager = SmsManager.getDefault();
+        //smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
+
+        String SENT = "SMS_SENT";
+        String DELIVERED = "SMS_DELIVERED";
+        String message = "Help I need you";
+
+        PendingIntent sentPI = PendingIntent.getBroadcast(this, 0, new Intent(SENT), 0);
+
+        PendingIntent deliveredPI = PendingIntent.getBroadcast(this, 0, new Intent(DELIVERED), 0);
+
+        //---when the SMS has been sent---
+        registerReceiver(new BroadcastReceiver(){
+            @Override
+            public void onReceive(Context arg0, Intent arg1) {
+                switch (getResultCode())
+                {
+                    case Activity.RESULT_OK:
+                        Log.d(TAG, "SMS sent");
+                        break;
+                    case SmsManager.RESULT_ERROR_GENERIC_FAILURE:
+                        Log.d(TAG, "Generic failure");
+                        break;
+                    case SmsManager.RESULT_ERROR_NO_SERVICE:
+                        Log.d(TAG, "No service");
+                        break;
+                    case SmsManager.RESULT_ERROR_NULL_PDU:
+                        Log.d(TAG, "Null PDU");
+                        break;
+                    case SmsManager.RESULT_ERROR_RADIO_OFF:
+                        Log.d(TAG, "Radio off");
+                        break;
+                }
+            }
+        }, new IntentFilter(SENT));
+
+        //---when the SMS has been delivered---
+        registerReceiver(new BroadcastReceiver(){
+            @Override
+            public void onReceive(Context arg0, Intent arg1) {
+                switch (getResultCode())
+                {
+                    case Activity.RESULT_OK:
+                        Log.d(TAG, "SMS delivered");
+                        break;
+                    case Activity.RESULT_CANCELED:
+                        Log.d(TAG, "SMS not delivered");
+                        break;
+                }
+            }
+        }, new IntentFilter(DELIVERED));
+
+        SmsManager sms = SmsManager.getDefault();
+        sms.sendTextMessage(primaryContactNumber, null, message, sentPI, deliveredPI);
     }
 
     private void makeACall(String primaryContactNumber) {
+        Log.d(TAG, "makeACall: " + primaryContactNumber);
 //        PermissionEverywhere.getPermission(getApplicationContext(), new String[]{Manifest.permission.CALL_PHONE},
 //                1234, "My Awesome App", "This app needs a permission", R.drawable.lock).enqueue(new PermissionResultCallback() {
 //            @Override
@@ -464,6 +522,86 @@ public class LockScreenViewService extends Service {
             });
 
             mForegroundLayout.startAnimation(animation);
+        }
+    }
+
+    /*---------- Listener class to get coordinates ------------- */
+    private class MyLocationListener implements LocationListener {
+        @Override
+        public void onLocationChanged(Location loc) {
+            String longitude = "Longitude: " + loc.getLongitude();
+            Log.v(TAG, "long: " + longitude);
+            String latitude = "Latitude: " + loc.getLatitude();
+            Log.v(TAG, "lat: " + latitude);
+
+
+        /*------- To get city name from coordinates -------- */
+            String cityName = null;
+            Geocoder gcd = new Geocoder(getBaseContext(), Locale.getDefault());
+            List<Address> addresses;
+            try {
+                addresses = gcd.getFromLocation(loc.getLatitude(),
+                        loc.getLongitude(), 1);
+                if (addresses.size() > 0) {
+                    System.out.println(addresses.get(0).getLocality());
+                    cityName = addresses.get(0).getLocality();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            String s = longitude + "\n" + latitude + "\n\nMy Current City is: "
+                    + cityName;
+            Log.d(TAG, "location cityName: " + s);
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+        }
+    }
+
+    private void initLoc() {
+        Log.d(TAG, "initLocation");
+        LocationManager locationManager = (LocationManager)
+                getSystemService(Context.LOCATION_SERVICE);
+
+        LocationListener locationListener = new MyLocationListener();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 10, locationListener);
+
+
+        // Create class object
+        GPSTracker gps = new GPSTracker(getApplicationContext());
+
+        // Check if GPS enabled
+        if(gps.canGetLocation()) {
+            Log.d(TAG, "enabled");
+
+            double latitude = gps.getLatitude();
+            double longitude = gps.getLongitude();
+            Log.d(TAG, "lat: " + latitude + " long: " + longitude);
+        } else {
+            Log.d(TAG, "nah");
+            // Can't get location.
+            // GPS or network is not enabled.
+            // Ask user to enable GPS/network in settings.
+            gps.showSettingsAlert();
         }
     }
 
