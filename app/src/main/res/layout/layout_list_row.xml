@@ -13,9 +13,9 @@
         android:layout_marginBottom="@dimen/_5sdp"
         android:layout_marginLeft="@dimen/_10sdp"
         android:layout_marginTop="@dimen/_5sdp"
-        android:textColor="@android:color/black"
-        android:text="test"
         android:autoLink="phone"
+        android:textColorLink="@android:color/holo_blue_light"
         tools:ignore="MissingPrefix" />
 
 </LinearLayout>
+

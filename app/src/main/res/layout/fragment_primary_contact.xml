@@ -14,6 +14,7 @@
         android:layout_marginLeft="@dimen/_15sdp"
         android:layout_marginRight="@dimen/_15sdp"
         android:text="@string/add_edit_contact"
+        android:background="@drawable/btn_selector"
         android:textAllCaps="false"
         tools:ignore="MissingPrefix" />
 
