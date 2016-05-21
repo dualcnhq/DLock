@@ -32,6 +32,11 @@
             android:theme="@style/AppThemeMain"/>
 
         <activity
+            android:name=".activities.DashboardActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppThemeMain"/>
+
+        <activity
             android:name=".activities.CityListActivity"
             android:screenOrientation="portrait" />
 

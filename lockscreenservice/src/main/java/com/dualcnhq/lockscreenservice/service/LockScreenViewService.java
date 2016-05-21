@@ -7,8 +7,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.PixelFormat;
+import android.location.Address;
+import android.location.Geocoder;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.IBinder;
 import android.os.Message;
 import android.support.v4.app.ActivityCompat;
@@ -40,6 +46,10 @@ import com.permissioneverywhere.PermissionResponse;
 import com.permissioneverywhere.PermissionResultCallback;
 import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Locale;
 
 import static android.support.v4.app.ActivityCompat.*;
 
@@ -83,12 +93,36 @@ public class LockScreenViewService extends Service {
 
     @Override
     public void onCreate() {
+        Log.d(TAG, "onCreate - LockScreenViewService");
         super.onCreate();
         mContext = this;
         SharedPreferencesUtil.init(mContext);
 //        sIsSoftKeyEnable = SharedPreferencesUtil.get(LockScreen.ISSOFTKEY);
+
+        // listen the events get fired during the call
+        StateListener phoneStateListener = new StateListener();
+        TelephonyManager telephonyManager = (TelephonyManager) getSystemService(TELEPHONY_SERVICE);
+        telephonyManager.listen(phoneStateListener,
+                PhoneStateListener.LISTEN_CALL_STATE);
     }
 
+    // Handle events of calls and unlock screen if necessary
+    private class StateListener extends PhoneStateListener {
+        @Override
+        public void onCallStateChanged(int state, String incomingNumber) {
+            super.onCallStateChanged(state, incomingNumber);
+            Log.d(TAG, "callState: " + state);
+            switch (state) {
+                case TelephonyManager.CALL_STATE_RINGING:
+                    dettachLockScreenView();
+                    break;
+                case TelephonyManager.CALL_STATE_OFFHOOK:
+                    break;
+                case TelephonyManager.CALL_STATE_IDLE:
+                    break;
+            }
+        }
+    }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
@@ -171,7 +205,6 @@ public class LockScreenViewService extends Service {
         return isLock;
     }
 
-
     private void attachLockScreenView() {
 
         if (null != mWindowManager && null != mLockScreenView && null != mParams) {
@@ -251,7 +284,7 @@ public class LockScreenViewService extends Service {
         });
     }
 
-    private void sendSMS(String primaryContactNumber){
+    private void sendSMS(String primaryContactNumber) {
         SmsManager smsManager = SmsManager.getDefault();
         smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
     }
@@ -272,7 +305,7 @@ public class LockScreenViewService extends Service {
         final Intent callIntent = new Intent(Intent.ACTION_CALL);
         callIntent.setData(Uri.parse("tel:" + primaryContactNumber));
         callIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        callIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
+        //callIntent.addFlags(Intent.FLAG_FROM_BACKGROUND);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
             // TODO: Consider calling
@@ -296,6 +329,7 @@ public class LockScreenViewService extends Service {
     }
 
     private static final String TAG = "LockScreenViewService";
+
     private class EndCallListener extends PhoneStateListener {
         @Override
         public void onCallStateChanged(int state, String incomingNumber) {
