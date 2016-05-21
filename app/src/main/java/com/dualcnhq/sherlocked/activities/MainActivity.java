@@ -12,14 +12,16 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AlertDialog;
-import android.util.Log;
+import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dualcnhq.lockscreenservice.SharedPreferencesUtil;
 import com.dualcnhq.sherlocked.R;
 import com.dualcnhq.sherlocked.utils.PrefsUtils;
 
@@ -43,6 +45,12 @@ public class MainActivity extends BaseActivity {
         setContentView(R.layout.activity_main);
 
         Button addEdit = (Button) findViewById(R.id.btnAddEditContact);
+        if(PrefsUtils.getIsPrimaryContactSet(getApplicationContext())){
+           addEdit.setText(getApplicationContext().getResources().getString(R.string.edit_contact) +
+           " no: " + PrefsUtils.getPrimaryContactNumber(getApplicationContext()));
+        } else {
+            addEdit.setText(getApplicationContext().getResources().getString(R.string.add_contact));
+        }
         addEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,7 +100,7 @@ public class MainActivity extends BaseActivity {
                 uriContact = intent.getData();
                 retrieveContactNumber(intent);
             } else {
-                Toast.makeText(getApplicationContext(), "Something went wrong", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "selecting primary contact was cancelled", Toast.LENGTH_SHORT).show();
             }
         }
     }
@@ -149,6 +157,7 @@ public class MainActivity extends BaseActivity {
     private void setPrimaryContactNumber(String selectedNumber){
         contactNumber = selectedNumber.replace("-", "");
         PrefsUtils.setPrimaryContactNumber(getApplicationContext(), contactNumber);
+        SharedPreferencesUtil.setPrimaryContactNumber(getApplicationContext(), contactNumber);
         retrieveContactName();
     }
 
@@ -160,6 +169,7 @@ public class MainActivity extends BaseActivity {
         cursor.close();
 
         PrefsUtils.setPrimaryContactName(getApplicationContext(), contactName);
+        PrefsUtils.setIsPrimaryContactSet(getApplicationContext(), true);
         showConfirmContactDialog();
     }
 
@@ -188,27 +198,17 @@ public class MainActivity extends BaseActivity {
         txtConfirmMessage.setText("You picked " + contactName +
                 " as your primary contact that uses this number: " + contactNumber +
                 ".\nDo you want to save it?\n\n" +
-                "(You can still edit it in the Settings screen)");
+                "(You can still edit it later)");
 
         dialog.show();
     }
-
 
     private void showEnableLockDialog() {
         final Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.dialog_enable_lockscreen);
-        TextView txtYes = (TextView) dialog.findViewById(R.id.textYes);
-        TextView txtNo = (TextView) dialog.findViewById(R.id.textNo);
-
-        txtNo.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                dialog.dismiss();
-            }
-        });
-
-        txtYes.setOnClickListener(new View.OnClickListener() {
+        TextView txtOK = (TextView) dialog.findViewById(R.id.textOK);
+        txtOK.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 dialog.dismiss();
@@ -218,5 +218,29 @@ public class MainActivity extends BaseActivity {
         dialog.show();
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            if(!TextUtils.isEmpty(PrefsUtils.getPrimaryContactNumber(getApplicationContext()))) {
+                startActivity(new Intent(getApplicationContext(), SettingsActivity.class));
+            } else {
+                Toast.makeText(getApplicationContext(), "You need to pick a primary contact first.",
+                        Toast.LENGTH_SHORT).show();
+            }
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }

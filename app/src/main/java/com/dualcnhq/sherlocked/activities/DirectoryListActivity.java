@@ -3,6 +3,9 @@ package com.dualcnhq.sherlocked.activities;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.View;
 import android.widget.ListView;
 
 import com.dualcnhq.sherlocked.R;
@@ -16,7 +19,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class DirectoryListActivity extends BaseActivity {
+
+    @Bind(R.id.directoryListToolbar)
+    Toolbar toolbar;
 
     private String city;
     private ListView lstView;
@@ -26,28 +35,48 @@ public class DirectoryListActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directory_list);
+        ButterKnife.bind(this);
 
         lstView = (ListView) findViewById(R.id.listContacts);
         arrayList = new ArrayList<>();
 
         Bundle bundle = getIntent().getExtras();
+        String stationTitleCase = "";
         if (bundle != null) {
             String station = bundle.getString("station");
             city = bundle.getString("city");
 
             if (station.equals(getResources().getString(R.string.police_stations).toUpperCase())) {
+                stationTitleCase = getApplicationContext().getResources().getString(R.string.police_stations);
                 loadFromAssets("police_station");
             } else if (station.equals(getResources().getString(R.string.fire_stations).toUpperCase())) {
+                stationTitleCase = getApplicationContext().getResources().getString(R.string.fire_stations);
                 loadFromAssets("fire_stations");
             } else if (station.equals(getResources().getString(R.string.hospitals).toUpperCase())) {
+                stationTitleCase = getApplicationContext().getResources().getString(R.string.hospitals);
                 loadFromAssets("hospitals");
             }
+            setToolbar(stationTitleCase);
+        }
+
+    }
+
+    private void setToolbar(String stationTitleCase){
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle(stationTitleCase + "" + " of " + city);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
         }
     }
 
     @Override
     public void onBackPressed() {
-
         super.onBackPressed();
         finish();
     }

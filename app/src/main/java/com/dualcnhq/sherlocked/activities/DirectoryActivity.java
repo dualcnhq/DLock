@@ -2,12 +2,19 @@ package com.dualcnhq.sherlocked.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 
 import com.dualcnhq.sherlocked.R;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class DirectoryActivity extends BaseActivity implements View.OnClickListener {
+
+    @Bind(R.id.directoryToolbar)
+    Toolbar toolbar;
 
     private String city_name;
 
@@ -15,10 +22,23 @@ public class DirectoryActivity extends BaseActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_directory);
+        ButterKnife.bind(this);
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             city_name = bundle.getString("city");
+        }
+
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Directory of " + city_name);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
         }
 
         findViewById(R.id.police_stations).setOnClickListener(this);

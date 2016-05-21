@@ -42,18 +42,19 @@
             android:clickable="true"
             android:gravity="center"
             android:text="@string/no"
+            android:visibility="invisible"
             android:textSize="@dimen/_14sdp"
             android:textColor="@android:color/black" />
 
         <TextView
-            android:id="@+id/textYes"
+            android:id="@+id/textOK"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:clickable="true"
             android:gravity="center"
             android:paddingLeft="10dp"
-            android:text="@string/yes"
+            android:text="@string/ok"
             android:textSize="@dimen/_14sdp"
             android:textColor="@android:color/holo_blue_light" />
 

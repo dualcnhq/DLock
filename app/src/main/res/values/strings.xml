@@ -5,20 +5,24 @@
     <string name="unlock">Unlock</string>
     <string name="send_sms">Send message</string>
     <string name="call">Call</string>
+    <string name="siren">Play Siren</string>
+
     <string name="add_contact">Add Contact</string>
     <string name="edit_contact">Edit Contact</string>
+
     <string name="directory">Directory</string>
-    <string name="siren">Play Siren</string>
 
     <string name="police_stations">Police Stations</string>
     <string name="fire_stations">Fire Stations</string>
     <string name="hospitals">Hospitals</string>
 
+    <string name="lock_screen_status">Lock Screen Status</string>
     <string name="enable_lock">Enable LockScreen</string>
-    <string name="enable_message">You can now enable the safe lock screen. Do you want to enable it?</string>
+    <string name="enable_message">You can now enable the safe lock screen. Enable it in Settings screen.</string>
 
     <string name="confirm_contact">Confirm Contact</string>
 
+    <string name="ok">OK</string>
     <string name="yes">YES</string>
     <string name="no">NO</string>
 

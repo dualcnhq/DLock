@@ -2,6 +2,7 @@ package com.dualcnhq.sherlocked.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,7 +17,13 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
+
 public class CityListActivity extends BaseActivity implements AdapterView.OnItemClickListener {
+
+    @Bind(R.id.cityToolbar)
+    Toolbar toolbar;
 
     private ArrayList<String> arrayNames;
     private ArrayList<Item> arrayList;
@@ -25,6 +32,20 @@ public class CityListActivity extends BaseActivity implements AdapterView.OnItem
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_city_list);
+        ButterKnife.bind(this);
+
+        setSupportActionBar(toolbar);
+        if (getSupportActionBar() != null) {
+            getSupportActionBar().setTitle("Select a city");
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    onBackPressed();
+                }
+            });
+        }
+
         arrayNames =  new ArrayList<>();
         arrayList =  new ArrayList<>();
 

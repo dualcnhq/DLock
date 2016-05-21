@@ -17,7 +17,7 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void loadSplashHandler() {
-        int interval = 3000;
+        int interval = 1000;
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
