@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LockScreenService</string>
+
+    <string name="send_sms">Send message</string>
+    <string name="call">Call</string>
+    <string name="siren">Play Siren</string>
+
+</resources>
