@@ -33,7 +33,6 @@ public class LockScreenActivity extends Activity {
 
     public PhoneStateListener phoneStateListener = new PhoneStateListener() {
         public void onCallStateChanged(int state, String incomingNumber) {
-
             switch (state) {
                 case TelephonyManager.CALL_STATE_IDLE:
                     break;
@@ -42,9 +41,7 @@ public class LockScreenActivity extends Activity {
                 default:
                     break;
             }
-        }
-
-        ;
+        };
     };
 
     @Override
