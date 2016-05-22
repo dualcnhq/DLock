@@ -3,6 +3,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="action_logout">Logout</string>
+    <string name="action_witness">Witness</string>
 
     <string name="cancel">Cancel</string>
 

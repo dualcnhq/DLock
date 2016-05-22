@@ -168,6 +168,9 @@ public class DashboardActivity extends BaseActivity {
                     AppUtils.showToast(getApplicationContext(), getResources().getString(R.string.network_disabled));
                 }
                 break;
+            case R.id.action_witness:
+                startActivity(new Intent(getApplicationContext(), WitnessActivity.class));
+                break;
         }
 
         return super.onOptionsItemSelected(item);

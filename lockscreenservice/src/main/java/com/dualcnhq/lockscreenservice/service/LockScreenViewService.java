@@ -302,7 +302,6 @@ public class LockScreenViewService extends Service {
                 Log.d(TAG, "isPlaying: " + mp.isPlaying());
             }
         });
-
     }
 
     private void sendSMS(String primaryContactNumber) {
@@ -345,8 +344,7 @@ public class LockScreenViewService extends Service {
         registerReceiver(new BroadcastReceiver(){
             @Override
             public void onReceive(Context arg0, Intent arg1) {
-                switch (getResultCode())
-                {
+                switch (getResultCode()) {
                     case Activity.RESULT_OK:
                         Log.d(TAG, "SMS delivered");
                         break;
