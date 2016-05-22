@@ -15,6 +15,7 @@ import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
+import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -286,16 +287,30 @@ public class LockScreenViewService extends Service {
                 makeACall(primaryContactNumber);
             }
         });
+
+        final MediaPlayer mp = MediaPlayer.create(this, R.raw.buzz);
+        mp.setLooping(true);
+        Button siren = (Button) mLockScreenView.findViewById(R.id.btnSiren);
+        siren.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!mp.isPlaying()) {
+                    mp.start();
+                } else {
+                    mp.pause();
+                }
+                Log.d(TAG, "isPlaying: " + mp.isPlaying());
+            }
+        });
+
     }
 
     private void sendSMS(String primaryContactNumber) {
         Log.d(TAG, "send sms: " + primaryContactNumber);
-        //SmsManager smsManager = SmsManager.getDefault();
-        //smsManager.sendTextMessage(primaryContactNumber, null, "HELP HELP", null, null);
 
         String SENT = "SMS_SENT";
         String DELIVERED = "SMS_DELIVERED";
-        String message = "Help I need you";
+        String message = "Help, I need you";
 
         PendingIntent sentPI = PendingIntent.getBroadcast(this, 0, new Intent(SENT), 0);
 
