@@ -65,4 +65,20 @@ public class PrefsUtils {
         return prefs.getBoolean(Constants.IS_CONTACT_SET, false);
     }
 
+    public static void resetBooleanPrefs(Context context, Boolean value){
+        prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putBoolean(Constants.IS_CONTACT_SET, value);
+        editor.putBoolean(Constants.IS_LOCK_ENABLED, value);
+        editor.apply();
+    }
+
+    public static void resetStringPrefs(Context context, String value){
+        prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = prefs.edit();
+        editor.putString(Constants.PRIMARY_CONTACT_NAME, value);
+        editor.putString(Constants.PRIMARY_CONTACT_NUMBER, value);
+        editor.apply();
+    }
+
 }

@@ -68,6 +68,8 @@ public class DashboardActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard);
 
+        checkForPermissions();
+
         ViewPager vpPager = (ViewPager) findViewById(R.id.vpPager);
         adapterViewPager = new TabFragmentAdapter((getSupportFragmentManager()));
         vpPager.setAdapter(adapterViewPager);
@@ -81,7 +83,6 @@ public class DashboardActivity extends BaseActivity {
 
         //this.initViews();
         //this.initData();
-        checkForPermissions();
     }
 
 //    private void initViews() {
@@ -160,6 +161,8 @@ public class DashboardActivity extends BaseActivity {
                         @Override
                         public void done(ParseException e) {
                             progressDialog.dismiss();
+                            PrefsUtils.resetBooleanPrefs(getApplicationContext(), false);
+                            PrefsUtils.resetStringPrefs(getApplicationContext(), "");
                             startActivity(new Intent(getApplicationContext(), DispatchActivity.class));
                             finish();
                         }
