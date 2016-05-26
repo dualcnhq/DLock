@@ -51,15 +51,13 @@ public class SettingsActivity extends BaseActivity {
         mSwitch = (SwitchCompat) this.findViewById(R.id.switchLockSetting);
         mSwitch.setTextOn("yes");
         mSwitch.setTextOff("no");
-        mSwitch.setEnabled(false);
 
         Log.d(TAG, "isEnabled: " + PrefsUtils.getIsLockEnabled(getApplicationContext()));
-        if(PrefsUtils.getIsLockEnabled(getApplicationContext())) {
-            mSwitch.setEnabled(true);
-        } else {
-            mSwitch.setEnabled(false);
-            checkDrawOverlayPermission();
-        }
+//        if(PrefsUtils.getIsLockEnabled(getApplicationContext())) {
+//            mSwitch.setEnabled(true);
+//        } else {mSwitch.setEnabled(true);
+//            checkDrawOverlayPermission();
+//        }
 
         boolean lockState = SharedPreferencesUtil.get(LockScreen.ISLOCK);
         if (lockState) {

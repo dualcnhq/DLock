@@ -69,7 +69,7 @@ public class PrefsUtils {
         prefs = context.getSharedPreferences(Constants.PREFS_NAME, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = prefs.edit();
         editor.putBoolean(Constants.IS_CONTACT_SET, value);
-        editor.putBoolean(Constants.IS_LOCK_ENABLED, value);
+        //editor.putBoolean(Constants.IS_LOCK_ENABLED, value);
         editor.apply();
     }
 
