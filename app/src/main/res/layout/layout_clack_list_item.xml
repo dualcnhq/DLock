@@ -15,7 +15,7 @@
         android:paddingRight="12dp"
         android:paddingTop="7dp">
 
-        <com.dualcnhq.sherlocked.views.RoundedImageView
+        <com.dualcnhq.dlock.views.RoundedImageView
             android:id="@+id/userIcon"
             android:layout_width="45dp"
             android:layout_height="45dp"

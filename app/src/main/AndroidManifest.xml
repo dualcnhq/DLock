@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dualcnhq.sherlocked">
+    package="com.dualcnhq.dlock">
 
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
@@ -11,14 +11,14 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
 
     <application
-        android:name=".SherlockedApplication"
+        android:name="com.dualcnhq.dlock.DLockApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".activities.DispatchActivity"
+            android:name="com.dualcnhq.dlock.activities.DispatchActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,41 +27,44 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activities.SplashActivity"
+        <activity android:name="com.dualcnhq.dlock.activities.SplashActivity"
             android:screenOrientation="portrait"/>
 
         <activity
-            android:name=".activities.MainActivity"
+            android:name="com.dualcnhq.dlock.activities.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain"/>
 
         <activity
-            android:name=".activities.DashboardActivity"
+            android:name="com.dualcnhq.dlock.activities.DashboardActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppThemeMain"/>
 
         <activity
-            android:name=".activities.CityListActivity"
+            android:name="com.dualcnhq.dlock.activities.CityListActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activities.DirectoryActivity"
+            android:name="com.dualcnhq.dlock.activities.DirectoryActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activities.DirectoryListActivity"
+            android:name="com.dualcnhq.dlock.activities.DirectoryListActivity"
             android:screenOrientation="portrait" />
 
         <activity
-            android:name=".activities.SettingsActivity"
+            android:name="com.dualcnhq.dlock.activities.SettingsActivity"
             android:screenOrientation="portrait" />
 
-        <activity android:name=".activities.PostActivity"
+        <activity android:name="com.dualcnhq.dlock.activities.PostActivity"
             android:screenOrientation="portrait"/>
 
-        <activity android:name=".activities.WitnessActivity"
+        <activity android:name="com.dualcnhq.dlock.activities.WitnessActivity"
             android:screenOrientation="portrait"/>
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5c51a58c9fdd4cfa9b86b410763b65b1ab7a5b18" />
     </application>
 
 </manifest>
