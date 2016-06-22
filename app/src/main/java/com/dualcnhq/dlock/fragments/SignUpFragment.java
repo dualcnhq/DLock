@@ -145,7 +145,6 @@ public class SignUpFragment extends Fragment {
             validationErrorMessage.append(getString(R.string.error_email_format));
         }
 
-
         validationErrorMessage.append(getString(R.string.error_end));
 
         // If there is a validation error, display the error

@@ -78,7 +78,18 @@ public class CityListActivity extends BaseActivity implements AdapterView.OnItem
                 arrayList.add(item);
                 arrayNames.add(jsonObj.getString("name"));
             }
-        } catch(JSONException e) {}
+        } catch(JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position,
+                            long id) {
+        Intent intent = new Intent(this,DirectoryActivity.class);
+        intent.putExtra("city", arrayList.get(position).getName());
+        intent.putExtra("id", arrayList.get(position).getId());
+        startActivity(intent);
     }
 
     private class Item{
@@ -90,22 +101,12 @@ public class CityListActivity extends BaseActivity implements AdapterView.OnItem
             this.name = name;
         }
 
-
         public int getId() {
             return id;
         }
         public String getName() {
             return name;
         }
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position,
-                            long id) {
-        Intent intent = new Intent(this,DirectoryActivity.class);
-        intent.putExtra("city", arrayList.get(position).getName());
-        intent.putExtra("id", arrayList.get(position).getId());
-        startActivity(intent);
     }
 
 }
